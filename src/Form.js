@@ -47,6 +47,11 @@ export const Form = (props)=>{
     // destructuras primer elemento la variable state, 2do la fn que permite cambiar el state
     // name="miguel"; you can not alter an state directly forbidden 
 
+    const removeName = (index) => {
+       
+        setNamesList([...namesList].filter((currentItem,filterIndex)=>filterIndex!==index));
+    }
+
     return ( /* parenthesis are for grouping things */
         <form >
             <input id="name" onChange={(event)=>setName(event.currentTarget.value)} value={name} />
@@ -56,7 +61,7 @@ export const Form = (props)=>{
                 {
                     namesList.map((currentItem, index) => {
                         return (
-                            <span key={index} style={{display:"block"}}>
+                            <span key={index} style={{display:"block"}} onClick={()=>removeName(index)}> {/*cuando la fn tiene un parametro que no es el event y necesita algo especial se declara 1 arrow fn que ejecute la fn pasandole como parametro lo que requiere */}
                                 {currentItem}
                                 {console.log("this is a current:" , currentItem)}
                             </span>
