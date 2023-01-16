@@ -52,6 +52,21 @@ export const Form = (props)=>{
             <input id="name" onChange={(event)=>setName(event.currentTarget.value)} value={name} />
             
             <button onClick={addName}>Add Name</button>
+            <div>
+                {
+                    namesList.map((currentItem, index) => {
+                        return (
+                            <span key={index} style={{display:"block"}}>
+                                {currentItem}
+                                {console.log("this is a current:" , currentItem)}
+                            </span>
+                        )
+
+                    })
+                }
+
+
+            </div>
             
 
         </form>
